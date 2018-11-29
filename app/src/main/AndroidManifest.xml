@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jackson.processcommunication">
 
+    <permission
+        android:name="com.jackson.processcommunication.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.jackson.processcommunication.permission.ACCESS_BOOK_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -26,11 +31,37 @@
             android:name=".process.ThirdActivity"
             android:process="com.jackson.processcommunication.remote" />
         <activity android:name=".process.ProcessActivity" />
-        <activity android:name=".messenger.MessengerActivity">
+        <activity android:name=".messenger.MessengerActivity" />
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.jackson.messenger" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".aidl.BookManagerService"
+            android:process=":remote" />
+        <service android:name=".binderpool.BinderPoolService"
+            android:process=":remote"/>
+
+        <activity android:name=".aidl.AidlActivity" />
+        <activity android:name=".contentprovider.ContentProviderActivity">
 
         </activity>
 
-        <service android:name=".messenger.MessengerService" />
+        <provider
+            android:name=".contentprovider.BookProvider"
+            android:authorities="com.jackson.processcommunication.book.provider"
+            android:permission="com.jackson.PROVIDER"
+            android:process=":provider">
+
+        </provider>
+
+        <activity android:name=".binderpool.BinderPoolActivity">
+
+        </activity>
     </application>
 
 </manifest>

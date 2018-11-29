@@ -28,4 +28,37 @@
         android:text="@string/serializable"
         />
 
+    <Button
+        android:id="@+id/btn_aidl"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:background="#F19C38"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
+        android:text="@string/aidl"
+        />
+
+    <Button
+        android:id="@+id/btn_contentprovider"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:background="#F19C38"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
+        android:text="@string/ContentProvider"
+        />
+
+    <Button
+        android:id="@+id/btn_binderpool"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:background="#F19C38"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="5dp"
+        android:text="@string/binderpool"
+        />
+
 </LinearLayout>

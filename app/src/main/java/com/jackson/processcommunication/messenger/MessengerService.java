@@ -25,7 +25,7 @@ import com.jackson.processcommunication.utils.Constant;
  */
 public class MessengerService extends Service {
 
-
+    //MessengerHandler用来处理客户端发送的消息
     private static class MessengerHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -35,8 +35,9 @@ public class MessengerService extends Service {
 
                     // 接收到Client的信息
                     Log.e("hbj--", "receive msg from Client:" + msg.getData().getString("msg"));
-                    // 发送Client信息
-                    Messenger client = msg.replyTo;
+
+                    // 回复消息到客户端
+                    Messenger client = msg.replyTo;  // 服务端通过此参数回应客户端
                     Message replyMessage = Message.obtain(null, Constant.MSG_FROM_SERVICE);
                     Bundle bundle = new Bundle();
                     bundle.putString("reply", "恩，消息收到，稍后回复你。");
@@ -58,7 +59,7 @@ public class MessengerService extends Service {
     }
 
 
-    private final Messenger mMessenger=new Messenger(new MessengerHandler());
+    private final Messenger mMessenger = new Messenger(new MessengerHandler());
 
 
     @Override

@@ -4,6 +4,9 @@
     <string name="pri_remote">私有remote</string>
     <string name="share_remote">全局remote</string>
     <string name="serializable">Messenger</string>
+    <string name="aidl">aidl</string>
+    <string name="ContentProvider">ContentProvider</string>
+    <string name="binderpool">BinderPool</string>
     <string name="tv_show">%1$d%2$s%3$b</string>
     <string name="permission_share_hint">为确保本功能可以正常使用，请允许以下权限：\n1.拨打电话和管理通话权限；\n2.文件读写权限；\n3.获取位置权限。
     \n4.获取账户列表权限。\n5.读取设备外部存储等权限</string>
